@@ -6,7 +6,7 @@ var soap = require('soap');
 var express = require('express');
 var fs = require('fs');
 
-// the splitter function, used by the service
+// el splitter function
 function splitter_function(args) {
     console.log('splitter_function');
     var splitter = args.splitter;
@@ -20,7 +20,7 @@ function splitter_function(args) {
         }
 }
 
-// the service
+// el servicio
 var serviceObject = {
   MessageSplitterService: {
         MessageSplitterServiceSoapPort: {
@@ -32,17 +32,17 @@ var serviceObject = {
     }
 };
 
-// load the WSDL file
+// cargar archivo WSDL
 var xml = fs.readFileSync('service.wsdl', 'utf8');
-// create express app
+// crear app express
 var app = express();
 
-// root handler
+// rooteo
 app.get('/', function (req, res) {
-  res.send('Node Soap Example!<br /><a href="https://github.com/macogala/node-soap-example#readme">Git README</a>');
+  res.send('Ejemplo Node Soap!');
 })
 
-// Launch the server and listen
+// Ejecutar el servidor
 var port = 8000;
 app.listen(port, function () {
   console.log('Listening on port ' + port);

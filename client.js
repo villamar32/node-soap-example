@@ -2,18 +2,18 @@
 var soap = require('soap');
 var url = 'http://localhost:8000/wsdl?wsdl';
 
-// Create client
+// Crear client
 soap.createClient(url, function (err, client) {
   if (err){
     throw err;
   }
   /* 
-  * Parameters of the service call: they need to be called as specified
-  * in the WSDL file
+  * Parametros del service call
+  * archivo WSDL 
   */
   var args = {
-    message: "id1:12:34:56:out42",
-    splitter: ":"
+    message: "192.168.1.100",
+    splitter: "."
   };
   // call the service
   client.MessageSplitter(args, function (err, res) {
